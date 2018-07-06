@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,60 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeEditorV1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iv-fW-08S">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JBJ-5l-rkw"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Take Picture" id="xyK-Hd-Wmj"/>
+                                    <barButtonItem title="Album" id="Tar-y0-2fL"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-dy-WnZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="MOr-kI-jkE"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Share" id="q8S-Pn-yDc"/>
+                                    <barButtonItem title="Cancel" id="Fpf-PF-IwP"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-2q-RRA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hr4-dy-WnZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Nm-bn-Jyx"/>
+                            <constraint firstItem="uHs-2q-RRA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9g0-GM-tmp"/>
+                            <constraint firstItem="uHs-2q-RRA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Oov-x3-K2f"/>
+                            <constraint firstItem="2iv-fW-08S" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="TX6-L7-yBY"/>
+                            <constraint firstItem="2iv-fW-08S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WbL-ik-vQk"/>
+                            <constraint firstItem="uHs-2q-RRA" firstAttribute="top" secondItem="Hr4-dy-WnZ" secondAttribute="bottom" id="tBw-5k-oUb"/>
+                            <constraint firstItem="Hr4-dy-WnZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tPL-Lu-FHi"/>
+                            <constraint firstItem="Hr4-dy-WnZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tTD-Fa-aNx"/>
+                            <constraint firstItem="2iv-fW-08S" firstAttribute="top" secondItem="uHs-2q-RRA" secondAttribute="bottom" id="tvN-Lc-LfQ"/>
+                            <constraint firstItem="2iv-fW-08S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uNp-4d-Wbg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="CancelButton" destination="Fpf-PF-IwP" id="Gec-f7-1se"/>
+                        <outlet property="ShareButton" destination="q8S-Pn-yDc" id="wZ3-hS-wvA"/>
+                        <outlet property="albumButton" destination="Tar-y0-2fL" id="lm3-Nx-9W3"/>
+                        <outlet property="takePictureButton" destination="xyK-Hd-Wmj" id="Y8c-KT-wfL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>

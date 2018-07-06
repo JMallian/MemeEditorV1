@@ -9,11 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var takePictureButton: UIBarButtonItem!
+    @IBOutlet weak var albumButton: UIBarButtonItem!
+    @IBOutlet weak var ShareButton: UIBarButtonItem!
+    @IBOutlet weak var CancelButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("I can't wait to push this project to Github!")
     }
 
     override func didReceiveMemoryWarning() {
