@@ -25,7 +25,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Take Picture" id="xyK-Hd-Wmj"/>
-                                    <barButtonItem title="Album" id="Tar-y0-2fL"/>
+                                    <barButtonItem title="Album" id="Tar-y0-2fL">
+                                        <connections>
+                                            <action selector="albumButtonSelected:" destination="BYZ-38-t0r" id="OjV-gD-dpZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-dy-WnZ">
@@ -61,6 +65,7 @@
                         <outlet property="CancelButton" destination="Fpf-PF-IwP" id="Gec-f7-1se"/>
                         <outlet property="ShareButton" destination="q8S-Pn-yDc" id="wZ3-hS-wvA"/>
                         <outlet property="albumButton" destination="Tar-y0-2fL" id="lm3-Nx-9W3"/>
+                        <outlet property="displayImage" destination="uHs-2q-RRA" id="i1Q-If-ojS"/>
                         <outlet property="takePictureButton" destination="xyK-Hd-Wmj" id="Y8c-KT-wfL"/>
                     </connections>
                 </viewController>
