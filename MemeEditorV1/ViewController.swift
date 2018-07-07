@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var takePictureButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var ShareButton: UIBarButtonItem! //why is this capitolized?
@@ -17,6 +17,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topTextField: UITextField!
     
+    
+    let memeTextAttributes: [String: Any] = [
+        NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+        NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+        NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedStringKey.strokeWidth.rawValue: -3
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,6 +32,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         takePictureButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        //not sure if this shoud all be done here or viewDidLoad - does it matter? 
+        bottomTextField.delegate = self
+        topTextField.delegate = self
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.backgroundColor = .clear
+        topTextField.backgroundColor = .clear
+        bottomTextField.autocapitalizationType = .allCharacters
+        topTextField.autocapitalizationType = .allCharacters
+        bottomTextField.textAlignment = .center
+        topTextField.textAlignment = .center
+//        bottomTextField.placeholder = "Bottom Text"
+//        topTextField.placeholder = "Top Text"
+        bottomTextField.text = "BOTTOM"
+        topTextField.text = "TOP"
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +79,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickerController.delegate = self
         pickerController.sourceType = .camera
         present(pickerController, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
     }
 }
 
