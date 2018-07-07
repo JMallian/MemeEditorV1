@@ -11,13 +11,17 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var takePictureButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
-    @IBOutlet weak var ShareButton: UIBarButtonItem!
-    @IBOutlet weak var CancelButton: UIBarButtonItem!
+    @IBOutlet weak var ShareButton: UIBarButtonItem! //why is this capitolized?
+    @IBOutlet weak var CancelButton: UIBarButtonItem! //why is this capitolized?
     @IBOutlet weak var displayImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        takePictureButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func albumButtonSelected(_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true, completion: nil)
     }
     
@@ -44,5 +49,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func cameraButtonSelected(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = .camera
+        present(pickerController, animated: true, completion: nil)
+    }
 }
 

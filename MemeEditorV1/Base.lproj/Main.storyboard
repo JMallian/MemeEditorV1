@@ -24,7 +24,11 @@
                                     <constraint firstAttribute="height" constant="44" id="JBJ-5l-rkw"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Take Picture" id="xyK-Hd-Wmj"/>
+                                    <barButtonItem title="Take Picture" id="xyK-Hd-Wmj">
+                                        <connections>
+                                            <action selector="cameraButtonSelected:" destination="BYZ-38-t0r" id="Nub-Dw-Sah"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Album" id="Tar-y0-2fL">
                                         <connections>
                                             <action selector="albumButtonSelected:" destination="BYZ-38-t0r" id="OjV-gD-dpZ"/>
