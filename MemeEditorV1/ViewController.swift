@@ -149,7 +149,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomToolBar.isHidden = false
         
         return memedImage
+    }
+    
+    @IBAction func shareButtonSelected(_ sender: Any) {
+        //generate a memed image
+        
+        //define an instance of the ActivityViewController
+        
+        //pass the ActivityViewController a memedImage as an activity item
+        
+        //present the ActivityViewController 
+    }
+    
+    @IBAction func cancelButtonSelected(_ sender: Any) {
         
     }
+    
 }
 

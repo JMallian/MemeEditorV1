@@ -42,8 +42,16 @@
                                     <constraint firstAttribute="height" constant="44" id="MOr-kI-jkE"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Share" id="q8S-Pn-yDc"/>
-                                    <barButtonItem title="Cancel" id="Fpf-PF-IwP"/>
+                                    <barButtonItem title="Share" id="q8S-Pn-yDc">
+                                        <connections>
+                                            <action selector="shareButtonSelected:" destination="BYZ-38-t0r" id="qqW-Ak-ea0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Cancel" id="Fpf-PF-IwP">
+                                        <connections>
+                                            <action selector="cancelButtonSelected:" destination="BYZ-38-t0r" id="BSu-lO-74A"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-2q-RRA">
