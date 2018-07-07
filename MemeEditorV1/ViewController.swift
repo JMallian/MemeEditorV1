@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var ShareButton: UIBarButtonItem! //why is this capitolized?
     @IBOutlet weak var CancelButton: UIBarButtonItem! //why is this capitolized?
     @IBOutlet weak var displayImage: UIImageView!
+    @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var topTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

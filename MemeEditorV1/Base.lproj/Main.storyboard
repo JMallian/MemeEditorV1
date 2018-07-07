@@ -49,14 +49,38 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-2q-RRA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6MR-Sm-pwT">
+                                <rect key="frame" x="0.0" y="593" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AqO-0u-ATE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyf-bX-WCK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dsJ-9A-nm8"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6MR-Sm-pwT" secondAttribute="trailing" id="4ye-x4-R0F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zyf-bX-WCK" secondAttribute="trailing" id="57Z-x8-CEu"/>
                             <constraint firstItem="Hr4-dy-WnZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Nm-bn-Jyx"/>
                             <constraint firstItem="uHs-2q-RRA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9g0-GM-tmp"/>
+                            <constraint firstItem="6MR-Sm-pwT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dy4-gA-Lhk"/>
+                            <constraint firstItem="Zyf-bX-WCK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Obh-CN-iZu"/>
                             <constraint firstItem="uHs-2q-RRA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Oov-x3-K2f"/>
                             <constraint firstItem="2iv-fW-08S" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="TX6-L7-yBY"/>
+                            <constraint firstItem="Zyf-bX-WCK" firstAttribute="top" secondItem="Hr4-dy-WnZ" secondAttribute="bottom" id="Veh-Kl-cxX"/>
                             <constraint firstItem="2iv-fW-08S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WbL-ik-vQk"/>
+                            <constraint firstItem="2iv-fW-08S" firstAttribute="top" secondItem="6MR-Sm-pwT" secondAttribute="bottom" id="aBX-lU-CAm"/>
                             <constraint firstItem="uHs-2q-RRA" firstAttribute="top" secondItem="Hr4-dy-WnZ" secondAttribute="bottom" id="tBw-5k-oUb"/>
                             <constraint firstItem="Hr4-dy-WnZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tPL-Lu-FHi"/>
                             <constraint firstItem="Hr4-dy-WnZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tTD-Fa-aNx"/>
@@ -69,8 +93,10 @@
                         <outlet property="CancelButton" destination="Fpf-PF-IwP" id="Gec-f7-1se"/>
                         <outlet property="ShareButton" destination="q8S-Pn-yDc" id="wZ3-hS-wvA"/>
                         <outlet property="albumButton" destination="Tar-y0-2fL" id="lm3-Nx-9W3"/>
+                        <outlet property="bottomTextField" destination="6MR-Sm-pwT" id="c7G-wg-2lL"/>
                         <outlet property="displayImage" destination="uHs-2q-RRA" id="i1Q-If-ojS"/>
                         <outlet property="takePictureButton" destination="xyK-Hd-Wmj" id="Y8c-KT-wfL"/>
+                        <outlet property="topTextField" destination="Zyf-bX-WCK" id="Myw-ZC-d40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
