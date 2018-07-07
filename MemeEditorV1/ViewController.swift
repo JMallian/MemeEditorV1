@@ -107,9 +107,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
     }
     
-    //but only want next to functions to happen if it's the bottom text field being edited, not the top
     @objc func keyboardWillShow(_ notification: Notification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        //only want to move view if the bottom text field is being edited, not the top
+        if bottomTextField.isFirstResponder {
+            print("bottom textfield is first responsder")
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
