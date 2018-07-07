@@ -12,6 +12,7 @@
 		4CF5008C20F0035F00722D39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF5008A20F0035F00722D39 /* Main.storyboard */; };
 		4CF5008E20F0036200722D39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF5008D20F0036200722D39 /* Assets.xcassets */; };
 		4CF5009120F0036200722D39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF5008F20F0036200722D39 /* LaunchScreen.storyboard */; };
+		4CF5009920F1722000722D39 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5009820F1721F00722D39 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4CF5008D20F0036200722D39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CF5009020F0036200722D39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF5009220F0036200722D39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CF5009820F1721F00722D39 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				4CF5008620F0035F00722D39 /* AppDelegate.swift */,
 				4CF5008820F0035F00722D39 /* ViewController.swift */,
+				4CF5009820F1721F00722D39 /* Meme.swift */,
 				4CF5008A20F0035F00722D39 /* Main.storyboard */,
 				4CF5008D20F0036200722D39 /* Assets.xcassets */,
 				4CF5008F20F0036200722D39 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF5009920F1722000722D39 /* Meme.swift in Sources */,
 				4CF5008920F0035F00722D39 /* ViewController.swift in Sources */,
 				4CF5008720F0035F00722D39 /* AppDelegate.swift in Sources */,
 			);
