@@ -32,7 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         takePictureButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        //not sure if this shoud all be done here or viewDidLoad - does it matter? 
+        //not sure if this shoud all be done here or viewDidLoad - does it matter?
         bottomTextField.delegate = self
         topTextField.delegate = self
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -47,6 +47,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        topTextField.placeholder = "Top Text"
         bottomTextField.text = "BOTTOM"
         topTextField.text = "TOP"
+        
+        //hey keyboard tell me when you appear
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +72,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             displayImage.image = image
-            displayImage.contentMode = .scaleAspectFit
+            displayImage.contentMode = .scaleAspectFill
         }
         dismiss(animated: true, completion: nil)
     }
@@ -88,6 +96,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    //but only want next to functions to happen if it's the bottom text field being edited, not the top
+    @objc func keyboardWillShow(_ notification: Notification) {
+        view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
     }
 }
 
