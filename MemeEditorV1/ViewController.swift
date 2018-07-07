@@ -32,7 +32,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("user selected image")
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            displayImage.image = image
+            displayImage.contentMode = .scaleAspectFit
+        }
         dismiss(animated: true, completion: nil)
     }
     
