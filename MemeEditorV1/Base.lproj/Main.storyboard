@@ -90,12 +90,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="CancelButton" destination="Fpf-PF-IwP" id="Gec-f7-1se"/>
-                        <outlet property="ShareButton" destination="q8S-Pn-yDc" id="wZ3-hS-wvA"/>
                         <outlet property="albumButton" destination="Tar-y0-2fL" id="lm3-Nx-9W3"/>
                         <outlet property="bottomTextField" destination="6MR-Sm-pwT" id="c7G-wg-2lL"/>
                         <outlet property="bottomToolBar" destination="2iv-fW-08S" id="hoM-9S-hpF"/>
+                        <outlet property="cancelButton" destination="Fpf-PF-IwP" id="TON-5k-7s1"/>
                         <outlet property="displayImage" destination="uHs-2q-RRA" id="i1Q-If-ojS"/>
+                        <outlet property="shareButton" destination="q8S-Pn-yDc" id="Egu-WC-Krg"/>
                         <outlet property="takePictureButton" destination="xyK-Hd-Wmj" id="Y8c-KT-wfL"/>
                         <outlet property="topTextField" destination="Zyf-bX-WCK" id="Myw-ZC-d40"/>
                         <outlet property="topToolBar" destination="Hr4-dy-WnZ" id="2mx-Hg-I8o"/>

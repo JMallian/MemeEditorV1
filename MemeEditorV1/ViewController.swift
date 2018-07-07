@@ -11,13 +11,13 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var takePictureButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
-    @IBOutlet weak var ShareButton: UIBarButtonItem! //why is this capitolized?
-    @IBOutlet weak var CancelButton: UIBarButtonItem! //why is this capitolized?
     @IBOutlet weak var displayImage: UIImageView!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topToolBar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     
     let memeTextAttributes: [String: Any] = [
