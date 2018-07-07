@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var displayImage: UIImageView!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var topToolBar: UIToolbar!
     
     
     let memeTextAttributes: [String: Any] = [
@@ -123,6 +125,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
+    }
+    
+    func save() {
+        let memedImage = generateMemedImage()
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, picture: displayImage.image!, memedImage: memedImage)
+    }
+    
+    //grab an image context and let it render the view hierarchy (image and textfieds in this case) into an UIImage object
+    func generateMemedImage() -> UIImage {
+        //hide toolbars
+        topToolBar.isHidden = true
+        bottomToolBar.isHidden = true
+        
+        //render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        //show toolbars
+        topToolBar.isHidden = false
+        bottomToolBar.isHidden = false
+        
+        return memedImage
+        
     }
 }
 
