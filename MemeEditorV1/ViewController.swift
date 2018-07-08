@@ -76,8 +76,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         controller.completionWithItemsHandler = {
             (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-            
-            self.save()
+            if completed {
+                self.save()
+            }
         }
     }
     
@@ -166,10 +167,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //save meme in array created in AppDelegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memeArray.append(meme)
-
     }
     
-    //MARK: methods to make code less rrepetitive
+    //MARK: methods to make code less repetitive
     func setTextFieldAttributes(text: String, textField: UITextField, backgroundColor: UIColor, autocapitalizationType: UITextAutocapitalizationType, alignment: NSTextAlignment) {
         textField.defaultTextAttributes = memeTextAttributes
         textField.text = text
