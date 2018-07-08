@@ -24,7 +24,8 @@
                                     <constraint firstAttribute="height" constant="44" id="JBJ-5l-rkw"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Take Picture" id="xyK-Hd-Wmj">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VNh-Jx-sdG"/>
+                                    <barButtonItem systemItem="camera" id="xyK-Hd-Wmj">
                                         <connections>
                                             <action selector="cameraButtonSelected:" destination="BYZ-38-t0r" id="Nub-Dw-Sah"/>
                                         </connections>
@@ -34,6 +35,7 @@
                                             <action selector="albumButtonSelected:" destination="BYZ-38-t0r" id="OjV-gD-dpZ"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9sz-Dp-0Zm"/>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-dy-WnZ">
@@ -42,11 +44,12 @@
                                     <constraint firstAttribute="height" constant="44" id="MOr-kI-jkE"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Share" id="q8S-Pn-yDc">
+                                    <barButtonItem systemItem="action" id="q8S-Pn-yDc">
                                         <connections>
                                             <action selector="shareButtonSelected:" destination="BYZ-38-t0r" id="qqW-Ak-ea0"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cOo-VX-bqa"/>
                                     <barButtonItem title="Cancel" id="Fpf-PF-IwP">
                                         <connections>
                                             <action selector="cancelButtonSelected:" destination="BYZ-38-t0r" id="BSu-lO-74A"/>
