@@ -94,8 +94,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func cancelButtonSelected(_ sender: Any) {
-        //not sure what functionality for this should be right now
-        
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        displayImage.image = nil        
     }
     
     //MARK UITextField delegate methods
