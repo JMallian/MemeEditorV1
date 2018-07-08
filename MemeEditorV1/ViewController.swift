@@ -35,19 +35,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //share button is disabled till user picks a photo to meme
         shareButton.isEnabled = false
         
-        //customizing text fields
         bottomTextField.delegate = self
         topTextField.delegate = self
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.backgroundColor = .clear
-        topTextField.backgroundColor = .clear
-        bottomTextField.autocapitalizationType = .allCharacters
-        topTextField.autocapitalizationType = .allCharacters
-        bottomTextField.textAlignment = .center
-        topTextField.textAlignment = .center
-        bottomTextField.text = "BOTTOM"
-        topTextField.text = "TOP"
+        
+        //custimize text fields
+        setTextFieldAttributes(text: "BOTTOM", textField: bottomTextField, backgroundColor: .clear, autocapitalizationType: .allCharacters, alignment: .center)
+        setTextFieldAttributes(text: "TOP", textField: topTextField, backgroundColor: .clear, autocapitalizationType: .allCharacters, alignment: .center )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -137,7 +130,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @objc func keyboardWillShow(_ notification: Notification) {
         //only want to move view if the bottom text field is being edited, not the top since the keyboard only blocks the bottom textfield
-        print("keyboard will show called")
         if bottomTextField.isFirstResponder {
             print("bottom textfield is first responsder")
             view.frame.origin.y -= getKeyboardHeight(notification)
@@ -181,6 +173,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memeArray.append(meme)
 
+    }
+    
+    //MARK: misc helper method
+    func setTextFieldAttributes(text: String, textField: UITextField, backgroundColor: UIColor, autocapitalizationType: UITextAutocapitalizationType, alignment: NSTextAlignment) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.text = text
+        textField.backgroundColor = backgroundColor
+        textField.autocapitalizationType = autocapitalizationType
+        textField.textAlignment = alignment
     }
 }
 
