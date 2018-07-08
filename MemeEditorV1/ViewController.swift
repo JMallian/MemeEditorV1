@@ -35,6 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //share button is disabled till user picks a photo to meme
         shareButton.isEnabled = false
         
+        //customizing text fields
         bottomTextField.delegate = self
         topTextField.delegate = self
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -116,13 +117,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             displayImage.contentMode = .scaleAspectFit
             //only want share button to be enabled after user selects a picture
             shareButton.isEnabled = true
-            print("enable share button")
         }
         dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("user canceled")
         dismiss(animated: true, completion: nil)
     }
     
