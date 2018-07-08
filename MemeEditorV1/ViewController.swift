@@ -47,14 +47,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.textAlignment = .center
         bottomTextField.text = "BOTTOM"
         topTextField.text = "TOP"
-        
-        //wnat to know when keyboard will appear in order to move the view up so the appearance of the keyboard doesn't cover the bottom textfield
-        subscribeToKeyboardNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         takePictureButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        //wnat to know when keyboard will appear in order to move the view up so the appearance of the keyboard doesn't cover the bottom textfield
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -138,6 +137,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @objc func keyboardWillShow(_ notification: Notification) {
         //only want to move view if the bottom text field is being edited, not the top since the keyboard only blocks the bottom textfield
+        print("keyboard will show called")
         if bottomTextField.isFirstResponder {
             print("bottom textfield is first responsder")
             view.frame.origin.y -= getKeyboardHeight(notification)
