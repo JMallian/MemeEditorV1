@@ -57,17 +57,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     //MARK storyboard actions
     @IBAction func albumButtonSelected(_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
-        present(pickerController, animated: true, completion: nil)
+        setupImagePickerController(sourceType: .photoLibrary)
     }
     
     @IBAction func cameraButtonSelected(_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .camera
-        present(pickerController, animated: true, completion: nil)
+        setupImagePickerController(sourceType: .camera)
     }
     
     @IBAction func shareButtonSelected(_ sender: Any) {
@@ -175,13 +169,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     }
     
-    //MARK: misc helper method
+    //MARK: methods to make code less rrepetitive
     func setTextFieldAttributes(text: String, textField: UITextField, backgroundColor: UIColor, autocapitalizationType: UITextAutocapitalizationType, alignment: NSTextAlignment) {
         textField.defaultTextAttributes = memeTextAttributes
         textField.text = text
         textField.backgroundColor = backgroundColor
         textField.autocapitalizationType = autocapitalizationType
         textField.textAlignment = alignment
+    }
+    
+    func setupImagePickerController(sourceType: UIImagePickerControllerSourceType) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = sourceType
+        present(pickerController, animated: true, completion: nil )
     }
 }
 
