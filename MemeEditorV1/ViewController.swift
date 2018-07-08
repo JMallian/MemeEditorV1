@@ -29,6 +29,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //share button is disabled till user picks a photo to meme
+        shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //hey keyboard tell me when you appear
         subscribeToKeyboardNotifications()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,6 +78,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             displayImage.image = image
             displayImage.contentMode = .scaleAspectFit
+            //only want share button to be enabled after user selects a picture
+            shareButton.isEnabled = true
+            print("enable share button")
         }
         dismiss(animated: true, completion: nil)
     }
@@ -127,10 +133,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.cgRectValue.height
     }
     
-    func save() {
-        let memedImage = generateMemedImage()
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, picture: displayImage.image!, memedImage: memedImage)
-    }
+
     
     //grab an image context and let it render the view hierarchy (image and textfieds in this case) into an UIImage object
     func generateMemedImage() -> UIImage {
@@ -153,12 +156,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func shareButtonSelected(_ sender: Any) {
         //generate a memed image
+        let memedImage = generateMemedImage()
         
-        //define an instance of the ActivityViewController
+        //define an instance of the ActivityViewController and pass it a meme as an activity item
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
-        //pass the ActivityViewController a memedImage as an activity item
+        //present the ActivityViewController
+        present(controller, animated: true, completion: nil)
         
-        //present the ActivityViewController 
+        controller.completionWithItemsHandler = {
+            (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            
+            self.save()
+        }
+    }
+    
+    func save() {
+        let memedImage = generateMemedImage()
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, picture: displayImage.image!, memedImage: memedImage)
+        //may not be best practice way of doing this
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memeArray.append(meme)
+        print("saved meme to array")
     }
     
     @IBAction func cancelButtonSelected(_ sender: Any) {
