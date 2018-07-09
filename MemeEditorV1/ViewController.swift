@@ -35,12 +35,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //share button is disabled till user picks a photo to meme
         shareButton.isEnabled = false
         
-        bottomTextField.delegate = self
-        topTextField.delegate = self
-        
-        //custimize text fields
-        setTextFieldAttributes(text: "BOTTOM", textField: bottomTextField, backgroundColor: .clear, autocapitalizationType: .allCharacters, alignment: .center)
-        setTextFieldAttributes(text: "TOP", textField: topTextField, backgroundColor: .clear, autocapitalizationType: .allCharacters, alignment: .center )
+        //custimize text fields and set text field delegates
+        setTextFieldAttributesAndDelegate(text: "BOTTOM", textField: bottomTextField)
+        setTextFieldAttributesAndDelegate(text: "TOP", textField: topTextField)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -170,13 +167,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     //MARK: methods to make code less repetitive
-    func setTextFieldAttributes(text: String, textField: UITextField, backgroundColor: UIColor, autocapitalizationType: UITextAutocapitalizationType, alignment: NSTextAlignment) {
+    func setTextFieldAttributesAndDelegate(text: String, textField: UITextField) {
         textField.defaultTextAttributes = memeTextAttributes
         textField.text = text
-        textField.backgroundColor = backgroundColor
-        textField.autocapitalizationType = autocapitalizationType
-        textField.textAlignment = alignment
-        textField.borderStyle = .none 
+        textField.backgroundColor = .clear
+        textField.autocapitalizationType = .allCharacters
+        textField.textAlignment = .center
+        textField.borderStyle = .none
+        textField.delegate = self
     }
     
     func setupImagePickerController(sourceType: UIImagePickerControllerSourceType) {
