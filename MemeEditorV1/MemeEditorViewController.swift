@@ -52,7 +52,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         unsubscribeFromKeyboardNotifications()
     }
 
-    //MARK storyboard actions
+    //MARK: storyboard actions
     @IBAction func albumButtonSelected(_ sender: Any) {
         setupImagePickerController(sourceType: .photoLibrary)
     }
@@ -85,17 +85,19 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         displayImage.image = nil        
     }
     
-    //MARK UITextField delegate methods
+    //MARK: UITextField delegate methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
     }
 
-    //MARK UIImagePickerController delegate methods
+    //MARK: UIImagePickerController delegate methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             displayImage.image = image
