@@ -123,7 +123,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @objc func keyboardWillShow(_ notification: Notification) {
         //only want to move view if the bottom text field is being edited, not the top since the keyboard only blocks the bottom textfield
         if bottomTextField.isFirstResponder {
-            print("bottom textfield is first responsder")
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
