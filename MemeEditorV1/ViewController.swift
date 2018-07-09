@@ -176,6 +176,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.backgroundColor = backgroundColor
         textField.autocapitalizationType = autocapitalizationType
         textField.textAlignment = alignment
+        textField.borderStyle = .none 
     }
     
     func setupImagePickerController(sourceType: UIImagePickerControllerSourceType) {
